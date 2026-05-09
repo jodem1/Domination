@@ -1,2 +1,3 @@
 4.75
 
+- Added: Group-synced UAV ping — while controlling a UAV (gunner/driver), Shift+T places a ping for your squad on the map and in 3D (vanilla ping does not replicate from the UAV camera). Ping position must be within 12 km of the UAV. Each player's new ping replaces their previous one. Mission params: d_with_uavping_sync (enable/disable), d_uavping_duration (seconds).

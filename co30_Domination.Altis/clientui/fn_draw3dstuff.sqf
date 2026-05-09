@@ -98,6 +98,26 @@ if (d_showallnearusermarkers) then {
 		};
 	} forEach (_d_allnearusermarkers # currentChannel);
 };
+
+// Group UAV pings (Shift+T while controlling UAV) — local map marker + 3D icon until server expiry (replace per pinger in uavpingshow)
+private _d_uavping_notes = missionNamespace getVariable ["d_uavping_notes", []];
+if (_d_uavping_notes isNotEqualTo []) then {
+	private _keep = [];
+	private _ico = getText (configfile >> "CfgMarkers" >> "mil_dot" >> "icon");
+	{
+		_x params ["_pASL", "_exp", "_txt", "_mname"];
+		if (serverTime > _exp) then {
+			deleteMarkerLocal _mname;
+		} else {
+			_keep pushBack _x;
+			private _posagl = ASLToAGL _pASL;
+			private _distp = _pos_cam distance _posagl;
+			private _m = ((1 - (_distp / 3500)) max 0.15) min 1;
+			drawIcon3D [_ico, [1, 1, 0, _m], _posagl vectorAdd [0, 0, 2 + (_distp * 0.02)], 0.9, 0.9, 0, _txt, 1, 0.038 - (_distp / 12000), "RobotoCondensed"];
+		};
+	} forEach _d_uavping_notes;
+	missionNamespace setVariable ["d_uavping_notes", _keep];
+};
 #ifndef __TT__
 if (!isNull d_near_player_flag && {d_force_isstreamfriendlyui != 1 && {!isStreamFriendlyUIEnabled}}) then {
 	drawLaser [

@@ -154,6 +154,9 @@ class cfgFunctions {
 			addc(repack_mags);
 			addc(rem_uav);
 			addc(uav_check);
+			addc(uavpinginit);
+			addc(uavpingkeydown);
+			addc(uavpingshow);
 			addc(seatswitchedmanvs);
 			addc(pkilledeh);
 			addc(earplugs);
@@ -637,6 +640,7 @@ class cfgFunctions {
 			addc(changeskill);
 			addc(ai_loop);
 			addc(uav_loop);
+			addc(uavpingrelay);
 			addc(mtrestkilled0);
 			addc(mtrestkilled1);
 			addc(mthardtargetkilled);

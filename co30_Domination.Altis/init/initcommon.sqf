@@ -103,6 +103,14 @@ if (isNil "d_cas_available_time_low") then {
 	d_cas_available_time_low = 100; // time CAS low cooldown setting
 };
 
+// Synced UAV ping (Shift+T while operating UAV) — toggled via Param d_with_uavping_sync; duration via Param d_uavping_duration
+if (isNil "d_with_uavping_sync") then {
+	d_with_uavping_sync = 1;
+};
+if (isNil "d_uavping_duration") then {
+	d_uavping_duration = 10;
+};
+
 if (isServer) then {
 	skipTime d_TimeOfDay;
 

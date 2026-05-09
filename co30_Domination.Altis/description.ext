@@ -278,6 +278,8 @@ class CfgRemoteExec {
 		class d_fnc_playsound {allowedTargets = 1;};
 		class d_fnc_giveplayerscore {allowedTargets = 2;};
 		class d_fnc_rem_uav {allowedTargets = 1;};
+		class d_fnc_uavpingrelay {allowedTargets = 2;};
+		class d_fnc_uavpingshow {allowedTargets = 1;};
 		class d_fnc_airtaxi_dest {allowedTargets = 2;};
 		class d_fnc_clienttargetsel {allowedTargets = 1;};
 		class d_fnc_addttp {allowedTargets = 2;};
@@ -1307,6 +1309,20 @@ class Params {
 		values[] = {0,1};
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+	};
+
+	class d_with_uavping_sync {
+		title = "$STR_DOM_MISSIONSTRING_2118";
+		values[] = {0,1};
+		default = 1;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+	};
+
+	class d_uavping_duration {
+		title = "$STR_DOM_MISSIONSTRING_2119";
+		values[] = {5,10,15,20,30,50};
+		default = 10;
+		texts[] = {"5","10","15","20","30","50"};
 	};
 
 	class d_AutoKickTime {

@@ -16319,6 +16319,30 @@
 <Chinese>Rally Point</Chinese>
 <French>Rally Point</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2118">
+<English>Group UAV ping (Shift+T while operating a UAV, shared with your squad):</English>
+<Spanish>Group UAV ping (Shift+T while operating a UAV, shared with your squad):</Spanish>
+<Portuguese>Group UAV ping (Shift+T while operating a UAV, shared with your squad):</Portuguese>
+<Korean>Group UAV ping (Shift+T while operating a UAV, shared with your squad):</Korean>
+<Japanese>Group UAV ping (Shift+T while operating a UAV, shared with your squad):</Japanese>
+<Original>Group UAV ping (Shift+T while operating a UAV, shared with your squad):</Original>
+<Russian>Group UAV ping (Shift+T while operating a UAV, shared with your squad):</Russian>
+<Chinesesimp>Group UAV ping (Shift+T while operating a UAV, shared with your squad):</Chinesesimp>
+<Chinese>Group UAV ping (Shift+T while operating a UAV, shared with your squad):</Chinese>
+<French>Group UAV ping (Shift+T while operating a UAV, shared with your squad):</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2119">
+<English>UAV group ping duration (seconds):</English>
+<Spanish>UAV group ping duration (seconds):</Spanish>
+<Portuguese>UAV group ping duration (seconds):</Portuguese>
+<Korean>UAV group ping duration (seconds):</Korean>
+<Japanese>UAV group ping duration (seconds):</Japanese>
+<Original>UAV group ping duration (seconds):</Original>
+<Russian>UAV group ping duration (seconds):</Russian>
+<Chinesesimp>UAV group ping duration (seconds):</Chinesesimp>
+<Chinese>UAV group ping duration (seconds):</Chinese>
+<French>UAV group ping duration (seconds):</French>
+</Key>
 </Container>
 </Package>
 </Project>
