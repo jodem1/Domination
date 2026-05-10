@@ -114,18 +114,25 @@ if (_d_uavping_notes isNotEqualTo []) then {
 			private _posagl = ASLToAGL _pASL;
 			private _distp = _pos_cam distance _posagl;
 			private _m = ((1 - (_distp / 3500)) max 0.15) min 1;
-			private _fsize = (((0.055 - (_distp / 15000)) max 0.022) * 0.65);
+			private _fsizeRaw = ((0.055 - (_distp / 15000)) max 0.022) * 0.65;
+			private _boost = 0;
+			if (_distp <= 1900) then {
+				_boost = (_distp / 1900) * 0.028;
+			} else {
+				_boost = 0.028 + ((_distp - 1900) / 1600) * (0.014 - 0.028);
+			};
+			private _fsize = ((_fsizeRaw + _boost) min 0.048);
 			private _colPing = _col_s get "ColorWhite";
-			private _ma = _m * 0.82;
+			private _ma = _m * 0.93;
 			if (_colPing isEqualTo []) then {
 				_colPing = [1, 1, 1, _ma];
 			} else {
 				_colPing = +_colPing;
 				_colPing set [3, _ma];
 			};
-			_colPing set [0, (_colPing # 0) * 0.78];
-			_colPing set [1, (_colPing # 1) * 0.78];
-			_colPing set [2, (_colPing # 2) * 0.78];
+			_colPing set [0, (_colPing # 0) * 0.86];
+			_colPing set [1, (_colPing # 1) * 0.86];
+			_colPing set [2, (_colPing # 2) * 0.86];
 			private _combinedTxt = format ["%1 m%2%3", round _distp, toString [10], _txt];
 			drawIcon3D [_ico, _colPing, _posagl, _m, _m, 0, _combinedTxt, 1, _fsize, "RobotoCondensed"];
 			drawLine3D [_posagl vectorAdd [0, 0, -10], _posagl vectorAdd [0, 0, -1], _colPing, 5];
