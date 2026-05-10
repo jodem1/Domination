@@ -5,8 +5,10 @@ rem The ArmaScriptCompiler.exe which is needed for SQFC files can be found at ht
 
 set BASE_MASTER=co30_Domination.Altis
 set MASTER=co30_Domination.Altis
-set D_VER=4_74
-set D_BNVER=4.74
+rem D_VER = segment in PBO / mission folder name (use underscores; no dots before the map suffix)
+rem D_BNVER = human-readable version for logs/UI — keep in sync with co30 intro + diag_log strings
+set D_VER=4_74_custom_1
+set D_BNVER=4.74_custom_1
 set D_NUM_PLAYERS=40
 set D_NUM_PLAYERS_TT=50
 set D_NUM_PLAYERS_CO=40
