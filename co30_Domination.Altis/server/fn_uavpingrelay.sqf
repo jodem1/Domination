@@ -14,10 +14,6 @@ private _uav = getConnectedUAV _unit;
 if (isNull _uav) exitWith {};
 if (_posASL distance (getPosASL _uav) > 12000) exitWith {};
 
-private _lt = _unit getVariable ["d_uavping_svt", -1e9];
-if (serverTime - _lt < 1.2) exitWith {};
-_unit setVariable ["d_uavping_svt", serverTime, true];
-
 private _grp = group _unit;
 if (isNull _grp) exitWith {};
 

@@ -103,9 +103,10 @@ if (d_showallnearusermarkers) then {
 private _d_uavping_notes = missionNamespace getVariable ["d_uavping_notes", []];
 if (_d_uavping_notes isNotEqualTo []) then {
 	private _keep = [];
-	private _ico = getText (configfile >> "CfgMarkers" >> "mil_dot" >> "icon");
 	{
 		_x params ["_pASL", "_exp", "_txt", "_mname"];
+		private _mtype = if (count _x > 5) then {_x # 5} else {"mil_box"};
+		private _ico = getText (configfile >> "CfgMarkers" >> _mtype >> "icon");
 		if (serverTime > _exp) then {
 			deleteMarkerLocal _mname;
 		} else {
@@ -113,7 +114,21 @@ if (_d_uavping_notes isNotEqualTo []) then {
 			private _posagl = ASLToAGL _pASL;
 			private _distp = _pos_cam distance _posagl;
 			private _m = ((1 - (_distp / 3500)) max 0.15) min 1;
-			drawIcon3D [_ico, [1, 1, 0, _m], _posagl vectorAdd [0, 0, 2 + (_distp * 0.02)], 0.9, 0.9, 0, _txt, 1, 0.038 - (_distp / 12000), "RobotoCondensed"];
+			private _fsize = (((0.055 - (_distp / 15000)) max 0.022) * 0.65);
+			private _colPing = _col_s get "ColorWhite";
+			private _ma = _m * 0.82;
+			if (_colPing isEqualTo []) then {
+				_colPing = [1, 1, 1, _ma];
+			} else {
+				_colPing = +_colPing;
+				_colPing set [3, _ma];
+			};
+			_colPing set [0, (_colPing # 0) * 0.78];
+			_colPing set [1, (_colPing # 1) * 0.78];
+			_colPing set [2, (_colPing # 2) * 0.78];
+			private _combinedTxt = format ["%1 m%2%3", round _distp, toString [10], _txt];
+			drawIcon3D [_ico, _colPing, _posagl, _m, _m, 0, _combinedTxt, 1, _fsize, "RobotoCondensed"];
+			drawLine3D [_posagl vectorAdd [0, 0, -10], _posagl vectorAdd [0, 0, -1], _colPing, 5];
 		};
 	} forEach _d_uavping_notes;
 	missionNamespace setVariable ["d_uavping_notes", _keep];

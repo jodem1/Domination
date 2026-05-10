@@ -29,18 +29,20 @@ if (count _ar == 4) then {
 };
 if (!_controlling) exitWith {false};
 
-private _t = missionNamespace getVariable ["d_uavping_lastsend", -1e9];
-if (time - _t < 1.5) exitWith {true};
-
-private _from = positionCameraToWorld [0, 0, 0];
-private _to = positionCameraToWorld [0, 0, 1e7];
-private _hits = lineIntersectsSurfaces [AGLToASL _from, AGLToASL _to, cameraOn, objNull, true, 1, "NONE", "NONE"];
+private _fromASL = AGLToASL (positionCameraToWorld [0, 0, 0]);
+private _toASL = AGLToASL (positionCameraToWorld [0, 0, 12000]);
+private _hits = lineIntersectsSurfaces [_fromASL, _toASL, cameraOn, objNull, true, 1, "VIEW", "FIRE"];
+if (_hits isEqualTo []) then {
+	_hits = lineIntersectsSurfaces [_fromASL, _toASL, cameraOn, objNull, true, 1, "GEOM", "FIRE"];
+};
+if (_hits isEqualTo []) then {
+	_hits = lineIntersectsSurfaces [_fromASL, _toASL, cameraOn, objNull, true, 1, "NONE", "NONE"];
+};
 private _posASL = if (_hits isEqualTo []) then {
 	AGLToASL (screenToWorld [0.5, 0.5])
 } else {
 	(_hits # 0) # 0
 };
 
-missionNamespace setVariable ["d_uavping_lastsend", time];
 [player, _posASL] remoteExecCall ["d_fnc_uavpingrelay", 2];
 true
