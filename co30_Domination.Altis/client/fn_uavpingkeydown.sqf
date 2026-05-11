@@ -44,5 +44,5 @@ private _posASL = if (_hits isEqualTo []) then {
 	(_hits # 0) # 0
 };
 
-[player, _posASL] remoteExecCall ["d_fnc_uavpingrelay", 2];
+[player, _posASL, netId _uav] remoteExecCall ["d_fnc_uavpingrelay", 2];
 true
