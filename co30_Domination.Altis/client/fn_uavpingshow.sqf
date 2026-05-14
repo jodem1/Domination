@@ -21,13 +21,13 @@ private _filtered = [];
 } forEach _notes;
 
 private _mname = format ["d_uavping_%1_%2_%3", floor serverTime, floor (random 1e8), clientOwner];
-private _mtype = "mil_box";
+private _mtype = "mil_dot";
 private _label = format ["UAV (%1)", _pingerName];
 [
 	_mname,
 	ASLToAGL _posASL,
 	"ICON",
-	"ColorWhite",
+	"ColorOrange",
 	[0.75, 0.75],
 	_label,
 	0,

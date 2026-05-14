@@ -105,7 +105,7 @@ if (_d_uavping_notes isNotEqualTo []) then {
 	private _keep = [];
 	{
 		_x params ["_pASL", "_exp", "_txt", "_mname"];
-		private _mtype = if (count _x > 5) then {_x # 5} else {"mil_box"};
+		private _mtype = if (count _x > 5) then {_x # 5} else {"mil_dot"};
 		private _ico = getText (configfile >> "CfgMarkers" >> _mtype >> "icon");
 		if (serverTime > _exp) then {
 			deleteMarkerLocal _mname;
@@ -122,10 +122,10 @@ if (_d_uavping_notes isNotEqualTo []) then {
 				_boost = 0.028 + ((_distp - 1900) / 1600) * (0.014 - 0.028);
 			};
 			private _fsize = ((_fsizeRaw + _boost) min 0.048);
-			private _colPing = _col_s get "ColorWhite";
+			private _colPing = _col_s get "ColorOrange";
 			private _ma = _m * 0.93;
 			if (_colPing isEqualTo []) then {
-				_colPing = [1, 1, 1, _ma];
+				_colPing = [1, 0.55, 0.12, _ma];
 			} else {
 				_colPing = +_colPing;
 				_colPing set [3, _ma];
