@@ -10,14 +10,14 @@ allowFunctionsLog = 1;
 #endif
 #include "cfgfunctions.hpp"
 
-author = "Xeno";
-OnLoadName = "Domination!";
+author = "MK24";
+OnLoadName = "Domination MK24!";
 onLoadMission = "$STR_DOM_MISSIONSTRING_24";
 onLoadIntroTime = false;
 onLoadMissionTime = false;
 disabledAI = 1;
 respawn = "BASE";
-respawndelay = 20;
+respawndelay = 0;
 debriefing = 1;
 showGPS = 1;
 showSquadRadar = 1;
@@ -28,7 +28,7 @@ overrideHazeQuality = 0; // Very Low   0/1/2 - VeryLow/Low/Standard
 
 class CfgWorlds {
 	class Any {
-		author = "Xeno";
+		author = "Mk24";
 		description = "$STR_DOM_MISSIONSTRING_265";
 		pictureMap = "pics\dompmap_ca.paa";
 		pictureShot = "pics\domls.paa";
@@ -599,7 +599,7 @@ class Params {
 	class d_with_targetselect_count {
 		title = "$STR_DOM_MISSIONSTRING_1953A";
 		values[] = {0,4,8,12,9999};
-		default = 4;
+		default = 9999;
 		texts[] = {"$STR_DOM_MISSIONSTRING_363", "4","8","12","$STR_DOM_MISSIONSTRING_2022"};
 	};
 	
@@ -620,7 +620,7 @@ class Params {
 	class d_respawnatsql {
 		title = "$STR_DOM_MISSIONSTRING_1705";
 		values[] = {0,2,1};
-		default = 0;
+		default = 2;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1705a","$STR_DOM_MISSIONSTRING_SQUAD","$STR_DOM_MISSIONSTRING_405"};
 	};
 	
@@ -677,7 +677,7 @@ class Params {
 	class d_ao_check_for_ai {
 		title = "$STR_DOM_MISSIONSTRING_2002";
 		values[] = {0,1,2};
-		default = 1;
+		default = 2;
 		texts[] = {"$STR_DOM_MISSIONSTRING_2003","$STR_DOM_MISSIONSTRING_2004","$STR_DOM_MISSIONSTRING_2005"};
 	};
 
@@ -691,6 +691,7 @@ class Params {
 	class d_bar_mhq_destroy {
 		title = "$STR_DOM_MISSIONSTRING_2080";
 		values[] = {0,1};
+		default = 0;
 #ifdef __CUP_CHERNARUS__
 		default = 1;
 #endif
@@ -793,7 +794,7 @@ class Params {
 	class d_MaxNumAmmoboxes {
 		title = "$STR_DOM_MISSIONSTRING_1169";
 		values[] = {10,20,30};
-		default = 10;
+		default = 30;
 		texts[] = {"10","20","30"};
 	};
 
@@ -898,7 +899,7 @@ class Params {
 	class d_pylon_noclust {
 		title = "$STR_DOM_MISSIONSTRING_1978";
 		values[] = {0,1};
-		default = 0;
+		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 
@@ -1096,7 +1097,7 @@ class Params {
 	class d_with_ai {
 		title = "$STR_DOM_MISSIONSTRING_1023";
 		values[] = {0,1,2,3,4};
-		default = 1;
+		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_2038","$STR_DOM_MISSIONSTRING_2068","$STR_DOM_MISSIONSTRING_2069"};
 	};
 
@@ -1109,8 +1110,8 @@ class Params {
 
 	class d_max_ai {
 		title = "$STR_DOM_MISSIONSTRING_1176";
-		values[] = {4,6,8,10,12,14,16};
-		default = 8;
+		values[] = {4,6,8,10,12,14,16,64};
+		default = 64;
 		texts[] = {"4","6","8","10","12","14","16"};
 	};
 
@@ -1328,14 +1329,14 @@ class Params {
 	class d_AutoKickTime {
 		title = "$STR_DOM_MISSIONSTRING_1107";
 		values[] = {0, 60, 300, 600, 1800, 3600};
-		default = 1800;
+		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1077","$STR_DOM_MISSIONSTRING_1106","$STR_DOM_MISSIONSTRING_1078","$STR_DOM_MISSIONSTRING_1079","$STR_DOM_MISSIONSTRING_1080","$STR_DOM_MISSIONSTRING_1081"};
 	};
 	
 	class d_score_needed_to_fly {
 		title = "$STR_DOM_MISSIONSTRING_2058";
 		values[] = {-1, 10, 50, 100, 500, 1000, 2000, 5000};
-		default = 10;
+		default = -1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1063","10","50","100","500","1000","2000","5000"};
 	};
 
@@ -1384,7 +1385,7 @@ class Params {
 	class d_mhqvec_create_cooldown {
 		title = "$STR_DOM_MISSIONSTRING_1824";
 		values[] = {0, 60, 120, 300, 600, 1200, 1800};
-		default = 120;
+		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_363","60","120","300","600","1200","1800"};
 	};
 
@@ -1405,14 +1406,14 @@ class Params {
 	class d_enable_extra_cas {
 		title = "$STR_DOM_MISSIONSTRING_EXTRA_CAS";
 		values[] = {0,1};
-		default = 0;
+		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 	
 	class d_tell_arty_cas {
 		title = "$STR_DOM_MISSIONSTRING_1894_TELL_ARTY_CAS";
 		values[] = {0,1};
-		default = 0;
+		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 	
@@ -1744,7 +1745,7 @@ class Params {
 	class d_camp_center {
 		title = "$STR_DOM_MISSIONSTRING_1931";
 		values[] = {0,1};
-		default = 0;
+		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 	
@@ -1800,7 +1801,7 @@ class Params {
 	class d_MTTowerSatchelsOnly {
 		title = "$STR_DOM_MISSIONSTRING_1213";
 		values[] = {0,1};
-		default = 0;
+		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
