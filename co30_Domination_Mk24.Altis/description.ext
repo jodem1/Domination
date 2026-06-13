@@ -691,7 +691,6 @@ class Params {
 	class d_bar_mhq_destroy {
 		title = "$STR_DOM_MISSIONSTRING_2080";
 		values[] = {0,1};
-		default = 0;
 #ifdef __CUP_CHERNARUS__
 		default = 1;
 #endif
@@ -702,7 +701,7 @@ class Params {
 		default = 1;
 #endif
 #ifdef __ALTIS__
-		default = 1;
+		default = 0;
 #endif
 #ifdef __CUP_SARA__
 		default = 1;
