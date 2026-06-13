@@ -701,7 +701,7 @@ class Params {
 		default = 1;
 #endif
 #ifdef __ALTIS__
-		default = 0;
+		default = 1;
 #endif
 #ifdef __CUP_SARA__
 		default = 1;
